@@ -10,13 +10,17 @@ import br.com.professorisidro.validacpf.service.Validador;
 @RestController
 @CrossOrigin("*")
 public class ValidadorController {
-	
+
 	@GetMapping("/validacpf")
 	public String validaCPF(@RequestParam String cpf) {
 		if (Validador.isCPF(cpf)) {
 			return "{\"status\": \"valido\"}";
 		}
-		 return "{\"status\": \"invalido\"}";
+		return "{\"status\": \"invalido\"}";
 	}
 
+	@GetMapping("/")
+	public String index() {
+		return "{\"mensagem\": \"Bem-vindo a API\"}";
+	}
 }
